@@ -78,7 +78,7 @@ The following are the the three important parameters needed to design a ASIC chi
    * Digital Std. cell library
    * I/O library 
 
-Simplified RTL to GDSII flow.
+**Simplified RTL to GDSII flow.**
 
 The overall process of RTL to GDSII flow is show below, followed by elaboration of each step.
 
