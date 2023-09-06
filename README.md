@@ -1,5 +1,9 @@
 # Advanced-Physical-Design-Using-OpenLANE-Sky130
 
+The workshop deals with the whole process of ASIC design using open source EDA tools. The whole process of ASIC design is stated in the image below.
+
+![ASIC process](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/a0ffda01-d37b-41e9-b701-2b8c85c140fb)
+
 # Table of Contents
 
 [Day 1](#day-1)
@@ -25,15 +29,25 @@ Inception of open-source EDA, OpenLANE and SKY130PDK
 
 Basic terminologoies
 
-1. **PADS**-
+1. **PADS**- A pad is the exposed region of the metal on a circuit board that the component lead is soldered to. Pads are the points through which connection of peripherals on a board is made with the chip/porcessor, and transfer of data takes place.
 
-2. **Foundary IP's**-
+2. **Foundary IP's**- A foundry is a company that provides IC (integrated circuit) manufacturing services - basically, you give them your design, and they manufacture the chip for you. Intellectual Property. In this context, it’s the design for the parts of a chip. Nowadays, many chips are not wholly designed by the company that’s “designing” them. For example, in a typical mobile phone application chip:
 
-3. **Core**-
+   * The main CPU will probably be bought as IP from ARM.
+   * The graphics processor (GPU) will be bought from one of a number of companies (e.g. ARM, Imagination Technologies, etc.)
+  
+The company “designing” the chip will take these IPs, combine them with some more stuff of their own design, and then send the whole thing off to the foundry for manufacturing. Now, there are a number of foundries (the main ones are TSMC, UMC and GlobalFoundries). They each make chips in slightly different ways, meaning that their processes are different.
 
-4. **Macros**-
+3. **Core**- A core in a chip is a well-partitioned piece of logic capable of independently performing all functions of a processor. All the logic building blocks are present here.
 
-5. **PDK**-
+4. **Macros**- Macro is an essential component in the VLSI design cycle before the final packaged chip is ready to use. Macro cells are the memory cells, intellectual property which an analog design team has designed. To break down the understanding of macro cells, consider macro cells as pieces of logic blocks, mainly intellectual properties (IP), which can be used in a design without the need to (of) building them from scratch. Thus, these memory cells are instrumental in reducing the total time for the design engineers that is required to complete their entire design.
+
+5. **PDK**- PDK stands for Process Desgin Kit, its an interface between FAB and the designers, its a collection of files used to model a fabrication process for the EDA tools used to design an IC. Apart from this a PDK consists of
+
+   * Process design rules i.e DRC
+   * Device models
+   * Digital Std. cell library
+   * I/O library 
 
 The layout of RISCV processor is shown below.
 
@@ -45,15 +59,24 @@ A generic view of IC is shown below
 
 </details>
 
+<details>
+ <summary> SoC Design & OpenLANE
+ </summary>
+
 SoC Design & OpenLANE
 
 The following are the the three important parameters needed to design a ASIC chip.
 
-1. RTL IP's-
+1. **RTL IP's**- RTL IP stands for Register Transfer Level.1 It refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
 
-2. EDA Tools-
+2. **EDA Tools**- Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
 
-3. PDK Data-
+3. **PDK Data**- PDK data consists of primarily
+   
+   * Process design rules i.e DRC
+   * Device models
+   * Digital Std. cell library
+   * I/O library 
 
 Simplified RTL to GDSII flow.
 
@@ -185,8 +208,17 @@ Static Timing Analysis (STA) is a technique used to validate the timing performa
 
 ![STA ](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/e1acf762-f38b-480e-b0a0-b13dae8c6183)
 
+</details>
+
+<details>
+ <summary> Getting Familiar to opensource EDA tools
+ </summary>
 
 
+
+
+
+</details>
 
 
 
