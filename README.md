@@ -25,15 +25,15 @@ Inception of open-source EDA, OpenLANE and SKY130PDK
 
 Basic terminologoies
 
-1. PADS-
+1. **PADS**-
 
-2. Foundary IP's-
+2. **Foundary IP's**-
 
-3. Core-
+3. **Core**-
 
-4. Macros-
+4. **Macros**-
 
-5. PDK-
+5. **PDK**-
 
 The layout of RISCV processor is shown below.
 
