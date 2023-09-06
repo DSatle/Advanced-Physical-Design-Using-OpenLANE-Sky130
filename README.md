@@ -1,8 +1,23 @@
 # Advanced-Physical-Design-Using-OpenLANE-Sky130
 
-Day-1
+# Table of Contents
 
-</details>
+[Day 1](#day-1)
+
+[Day 2](#day-2)
+
+[Day 3](#day-3)
+
+[Day 4](#day-4)
+
+[Day 5](#day-5)
+
+# Day_1 Inception of Open-Source EDA, OpenLANE & Sky130PDK
+
+<details>
+ <summary> How to Talk to Computers
+ </summary>
+
 
 How to Talk to Computers
 
