@@ -213,6 +213,7 @@ Static Timing Analysis (STA) is a technique used to validate the timing performa
 <details>
  <summary> Getting Familiar to opensource EDA tools
  </summary>
+ 
 **OpenLane Installation**
  
 **Step 1- Installation of required packages**
