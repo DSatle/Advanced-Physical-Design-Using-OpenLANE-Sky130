@@ -213,16 +213,85 @@ Static Timing Analysis (STA) is a technique used to validate the timing performa
 <details>
  <summary> Getting Familiar to opensource EDA tools
  </summary>
+**OpenLane Installation**
+ 
+**Step 1- Installation of required packages**
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install -y build-essential python3 python3-venv python3-pip make git
+```
+
+**Step 2-Docker Installation**
+
+```
+# Remove old installations
+sudo apt-get remove docker docker-engine docker.io containerd runc
+# Installation of requirements
+sudo apt-get update
+sudo apt-get install \
+   ca-certificates \
+   curl \
+   gnupg \
+   lsb-release
+# Add the keyrings of docker
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+# Add the package repository
+echo \
+   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# Update the package repository
+sudo apt-get update
+
+# Install Docker
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# Check for installation
+sudo docker run hello-world
+
+```
+
+**Step 3-Installing OpenLANE**
+
+```
+git clone https://github.com/The-OpenROAD-Project/OpenLane
+cd OpenLane
+make
+make test
+
+```
+The following image shows the installation of openlane
+
+![OpenLane](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/b8f93fc6-64fb-42e9-b2a0-06c74a81b3be)
+
+Tools Available in Openlane Folder
 
 
+![tools available](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/ac2ab737-8a74-4ac8-a0e2-c16a2fa1f52b)
 
+Now we will run synthesis
 
+```
+run_synthesis
+
+```
+
+![Synthesis SS](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/9b942dc2-67d0-4a03-ac46-7676a39880c1)
+
+The synthesis Timing report is as followed
+
+![log file 1](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/ffd6cb0e-d442-46b8-9f19-199edbdded2b)
+
+The synthesis power report is as follows
+
+![power log file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/ccbb3fef-c4b3-4569-846e-ba5995e7ed4d)
 
 </details>
 
 
-
- 
+ # Day_2 Good Floor plan & bad floor plan & Introduction to library cells
   
 
 
