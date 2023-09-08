@@ -293,7 +293,10 @@ The synthesis power report is as follows
 
 
  # Day_2 Good Floor plan & bad floor plan & Introduction to library cells
-  
+
+  <details>
+ <summary> Chip Floor Planning Considerations
+ </summary>
 
 
 
