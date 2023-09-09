@@ -371,6 +371,47 @@ After the I/O pad positions are determined, the design process includes logical 
 <details>
  <summary> General timing characterisation parameters
  </summary>
+ 
+**Timing Characterisation**
+
+The definations is understood by taking a circuit as a reference 
+
+![timing charact  ckt](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/b9f3b27d-3cd0-48d4-bbc5-848b18c63045)
+
+
+**slew_low_rise_thr**- Its generally taken as a point in the rising wavform, the point is at rising edge generally at 20% value from the initial point.
+
+**slew_high_rise_thr** - Its generally taken as a point in the rising wavform, the point is at rising edge generally at 20% value from the final point of the waveform, also it can also be considered as 80% from initial point of the waveform.
+
+**slew_low_fall_thr**- Its generally taken as a point in the falling wavform, the point is at rising edge generally at 20% value from the initial point.
+
+**slew_low_fall_thr** - Its generally taken as a point in the falling wavform, the point is at rising edge generally at 20% value from the final point of the waveform, also it can also be considered as 80% from initial point of the waveform.
+
+![inop1](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/24922247-a8b7-42c7-8f19-3315f8be5f8b)
+
+
+**in_rise_thr** - It is generally taken the 50% value point in the input rise waveform. 
+
+**in_fall_thr** - It is generally taken the 50% value point in the input fall waveform. 
+
+**out_rise_thr** -  It is generally taken the 50% value point in the output rise waveform.
+
+**out_fall_thr**-  It is generally taken the 50% value point in the output fall waveform.
+
+The concept is shown in the image below
+
+
+![com](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7794cd40-f580-4443-ab91-134d111c4fdf)
+
+**Propagation delay and transition time**
+
+**Propagation delay** is the difference out_thr and in_thr. Choosing correct out_thr and in_thr is very important for getting correct propagation delay.
+
+![propdelay](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/a1768be2-0827-4ebc-9fac-8a91ed738043)
+
+**Transition time** is the difference between slew_high_fall_thr and slew_low_fall_thr. 
+
+![transition time](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/a030403f-1132-4700-9e13-4bb5089e703c)
 
  </details>
 
@@ -419,6 +460,10 @@ After the I/O pad positions are determined, the design process includes logical 
   <details>
  <summary> Timing analysis with real clocks using openSTA
  </summary>
+
+ 
+
+ 
 
  </details>
 
