@@ -298,6 +298,62 @@ The synthesis power report is as follows
  <summary> Chip Floor Planning Considerations
  </summary>
 
+**Chip Floor Planning Considerations**
+
+**Die**- A die which consists of core is a small semiconductor material specimen on which the fundamental circuit is fabricated.
+
+![Die ](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/39d31df3-4436-4053-9d49-2b4b6bb3f9ef)
+
+
+**Utlisation Factor** == Total area occupied by the netlist / Total area of the core. 
+
+Usually the utlisation factor is around 0.5 to 0.6. 
+
+**Aspect ratio**-- Height of core / Width of core
+
+![utlisation factor](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/915820fa-af9a-468a-b4de-bfb7a71e4343)
+
+**Concept of Pre-placed cells**
+
+**Pre-Placed cells**- There are few IP's/blocks have user defined locations, and hence placed in chip before automated placement and routing and are called preplaced cells.
+
+**Floor Planning**- The arrangement of these IP's in a chip is refered as floor planning.
+
+Automated placement and routing tools places the remaning logical cells in the design onto the chip.
+
+**Decoupling Capacitor**- 
+
+Decoupling capacitors are essential components in electronic circuit design that help maintain a stable power supply, filter out noise, and improve the overall performance and reliability of electronic systems, particularly in digital and mixed-signal applications. Proper selection, placement, and sizing of decoupling capacitors are critical for their effectiveness in reducing noise and maintaining voltage stability.
+
+![decoupling cap](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/944d547d-3008-4fb1-9da4-f170ec5b276d)
+
+![decoupling cap 2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/9dda34a1-4168-4d63-965c-f2f5c55d0663)
+
+**Noise Margin** 
+
+Noise margin is a concept used in digital electronics and integrated circuit (IC) design to quantify the tolerance of a digital signal to noise and voltage variations. It provides a measure of the robustness of a digital circuit by defining the range of acceptable voltage levels for logic values (0 and 1) and ensuring that signals can be reliably interpreted in the presence of noise. Noise margin is typically expressed in terms of voltage or voltage range.
+
+
+![noise margin](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/df6ae763-87d0-451b-b718-90c615ca5728)
+
+**Power Planning**
+Power Planning in integrated circuit (IC) design is a crucial aspect of ensuring proper power distribution to various components on the chip. While pre-placed macros (blocks) may have dedicated decoupling capacitors (decaps) for noise filtering and stabilization, the entire chip can't have individual decaps. To address this, effective power planning involves creating a network of VDD (power supply) and VSS (ground) pads for each block, strategically connecting them to horizontal and vertical power and ground lines. These lines form a power mesh, which acts as a distributed power delivery network. This approach ensures that each block receives a stable and clean power supply, reducing noise and voltage fluctuations, and contributes to the overall reliability and performance of the integrated circuit. The power mesh effectively distributes power throughout the chip, preventing voltage drops and ensuring consistent operation of all blocks.
+
+**Ground bump**- When n numbers of capacitors discharge at the same time, there would be a disturbance of voltage at the ground, shown in the picture below, if the ground bump is within noise margin its fine but if it exceeds then it would lead to some random value in the circuit.
+
+![ground bump](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/8eaf2eea-3251-4869-bd19-09346d7c9f12)
+
+**Voltage droop**- When n numbers of capacitors charge at the same time, there would be a disturbance of voltage at the power supply, indicate in the picture below
+
+![voltage droop](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/82e7767b-fff0-4843-ad5c-da7a8792ce26)
+
+**Pin Placement**
+Pin Placement in integrated circuit (IC) design involves determining the physical locations of input and output (I/O) pins that connect to the logic gates within the chip.
+The netlist specifies how the logic gates within the chip are interconnected. It provides information about which gates are connected to one another and how signals flow through the design.
+After the I/O pad positions are determined, the design process includes logical placement blocking of pre-placed macros. This step involves arranging pre-placed macros (blocks of predefined logic) in a way that distinguishes them from the area reserved for the I/O pins. This separation ensures that the macros do not interfere with the connectivity and signal paths associated with the pins.
+
+
+
 
 
 
