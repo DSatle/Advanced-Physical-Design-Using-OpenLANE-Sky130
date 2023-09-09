@@ -501,6 +501,18 @@ The concept is shown in the image below
  <summary> Timing modelling using delay tables
  </summary>
 
+**Lab steps to convert grid info to track info**
+
+**Lab steps to convert magic layout to std cell LEF**
+
+**Introduction to timing libs and steps to include new cell in synthesis**
+
+**Introduction to delay tables**
+
+**
+
+
+
  </details>
 
   <details>
@@ -532,9 +544,28 @@ The concept is shown in the image below
  <summary> Routing and Design Rule Check(DRC)
  </summary>
 
+
 **Routing**- Routing is the process of connecting two elements in the circuit. The software here decides the best possible path to connect the two elements.
 
-**Maze Routing**- 
+**Maze Routing**- The **Lee algorithm** is one possible solution for maze routing problems. It always gives an optimal solution, if one exists, but is slow and requires large memory for dense layout.
+
+The algorithm is a breadth-first based algorithm that uses queues to store the steps. It usually uses the following steps:
+
+* Choose a starting point and add it to the queue.
+* Add the valid neighboring cells to the queue.
+* Remove the position you are on from the queue and continue to the next element.
+* Repeat steps 2 and 3 until the queue is empty.
+  
+  One key concept to understand is that breadth-first searches go wide, while depth-first searches go deep.
+
+  The following image show the two different ways to connect the element in the core using the Lee's algorithm.
+
+  ![Lee algorithm](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/d8fa3d7b-2612-43f6-a5bc-f399a1781b3f)
+
+  **Design Rule Check(DRC)**
+
+  
+
 
  </details>
 
@@ -542,11 +573,26 @@ The concept is shown in the image below
  <summary> Power distribution Network and routing 
  </summary>
 
+ **Lab steps to build power distribution network**
+
+ **Lab steps from power straps to std. cell power**
+
+ **Basics of global and detail routing and configure TritonRoute**
+
  </details>
 
 <details>
  <summary> TritonRoute Features
  </summary>
+
+**TritonRoute feature 1 -Honours pre-processed route guides**
+
+**TritonRoute Feature 2&3 -Inter-guide connectivity and intra & inter-layer routing**
+
+**TritonRoute method to handle connectivity**
+
+**Routing topology algorithm and final files list post-route**
+
 
  </details>
 
