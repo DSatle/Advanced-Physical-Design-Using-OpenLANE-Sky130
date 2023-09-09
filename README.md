@@ -353,8 +353,101 @@ The netlist specifies how the logic gates within the chip are interconnected. It
 After the I/O pad positions are determined, the design process includes logical placement blocking of pre-placed macros. This step involves arranging pre-placed macros (blocks of predefined logic) in a way that distinguishes them from the area reserved for the I/O pins. This separation ensures that the macros do not interfere with the connectivity and signal paths associated with the pins.
 
 
+</details>
+
+<details>
+ <summary> Library Binding and Placement 
+ </summary>
 
 
+ </details>
+
+ <details>
+ <summary> Cell design and characterization flows
+ </summary>
+
+</details>
+
+<details>
+ <summary> General timing characterisation parameters
+ </summary>
+
+ </details>
+
+ 
+ # Day_3 Design library cell using Magic Layout and ngspice characterisation
+
+ <details>
+ <summary> Labs for CMOS inverter ngspice simulations
+ </summary>
+
+ </details>
+
+ <details>
+ <summary>Inception of CMOS fabrication Process
+ </summary>
+
+ </details>
+
+ <details>
+ <summary> SKY130 Tech File Labs
+ </summary>
+
+ </details>
+
+ 
+ # Day_4 Pre Layout timing analysis and importance of good clock tree
+
+ <details>
+ <summary> Timing modelling using delay tables
+ </summary>
+
+ </details>
+
+  <details>
+ <summary>Timing Analysis with ideal clocks using openSTA
+ </summary>
+
+ </details>
+
+ <details>
+ <summary> Clock tree synthesis TritonCTS and signal integrity
+ </summary>
+
+ </details>
+
+  <details>
+ <summary> Timing analysis with real clocks using openSTA
+ </summary>
+
+ </details>
+
+ 
+ # Day_5 Final steps for RTL2GDS using tritonRoute and openSTA
+
+<details>
+ <summary> Routing and Design Rule Check(DRC)
+ </summary>
+
+ </details>
+
+ <details>
+ <summary> Power distribution Network and routing 
+ </summary>
+
+ </details>
+
+<details>
+ <summary> TritonRoute Features
+ </summary>
+
+ </details>
+
+
+
+
+ 
+ 
 
 
 
