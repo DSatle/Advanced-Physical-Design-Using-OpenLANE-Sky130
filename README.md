@@ -352,12 +352,70 @@ Pin Placement in integrated circuit (IC) design involves determining the physica
 The netlist specifies how the logic gates within the chip are interconnected. It provides information about which gates are connected to one another and how signals flow through the design.
 After the I/O pad positions are determined, the design process includes logical placement blocking of pre-placed macros. This step involves arranging pre-placed macros (blocks of predefined logic) in a way that distinguishes them from the area reserved for the I/O pins. This separation ensures that the macros do not interfere with the connectivity and signal paths associated with the pins.
 
+**Generating the floor using Magic**
+
+To generate the floorplan following commands is used 
+
+```
+run_floorplan
+
+```
+
+```
+run_placement
+```
+
+Following process shown in the image will run in the terminal
+
+![commands to generate floorplan](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/a6e0de31-21ae-4954-82ad-957e348e2c60)
+
+Now to view the generated floorplan, I invoked magic in the directory where the floorplan is present
+
+```
+cd /home/divyam/OpenLane/designs/picorv32a/runs/RUN_2023.09.09_13.22.30/results/floorplan/
+```
+
+Invoking magic 
+
+```
+ magic  /home/divyam/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.min.lef def read picorv32.def
+```
+
+Below shows the commands runned in the command
+
+![magic invoke](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/6dba6fe5-fb90-4683-9a52-2b686470b4fe)
+
+The floorplan is shown below
+
+![floorplan basic](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/9cbc9460-6196-40dd-bdc7-da4e1e46a6cf)
+
+To **zoom in** the floor plan press Z, below is the zoomed image of the floorplan
+
+![zoomed floorplan](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/ccd2a5d4-700c-44d7-80de-b4d5a75d6982)
+
+
+To **zoom out** the floor plan press shift+Z, below is the zoomed image of the floorplan
 
 </details>
 
 <details>
  <summary> Library Binding and Placement 
  </summary>
+
+**Netlist binding and initial design**
+ 
+**Library** consists of cells, shapes & sizes of cells, various flavours of the same cell, timing/delay information.
+
+The netlist or the circuit is made using the component available in library, where each element is represented as a box.
+
+![lib to netlist](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/4887d41c-a227-47df-b30a-c92b8a800019)
+
+**Placement** is the process of placing the cells in the core area of the chip as shown below. 
+
+![netlist_placement](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/e40e5c6c-a71d-454e-8cba-4b24530cc44b)
+
+**Optimise placement using estimated wire length and capacitance**
+
 
 
  </details>
@@ -473,6 +531,10 @@ The concept is shown in the image below
 <details>
  <summary> Routing and Design Rule Check(DRC)
  </summary>
+
+**Routing**- Routing is the process of connecting two elements in the circuit. The software here decides the best possible path to connect the two elements.
+
+**Maze Routing**- 
 
  </details>
 
