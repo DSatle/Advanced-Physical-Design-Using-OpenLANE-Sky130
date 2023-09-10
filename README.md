@@ -553,12 +553,120 @@ Ampersand at the end makes the next prompt line free, otherwise magic keeps the 
  <summary>Inception of CMOS fabrication Process
  </summary>
 
+**Lab introduction to sky130 basic layers layout and LEF using inverter**
+
+To select the area we need to press S, and type what in the command window which inturns gives the details about the selected area.
+
+![knowing the element in the floorplan](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/705b633d-6b09-43c0-8bee-e95905f6a9fc)
+
+![knowelement ](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/62e7b87a-e76a-4dda-a472-97747af2387b)
+
+![knowing the element in the floorplan](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/cc7e826b-4f5e-4d4b-8313-079c69286bd1)
+
+**Steps to create standard cell layout and extract spice netlist**
+
+Following commands were used in the magic command window to generate the spice file.
+
+```
+extract all
+
+ext2spice cthresh 0 rthresh 0
+
+ex2spice
+```
+The above commands will generate a ``.spice file`` in the directory.
+
+![steps to generate the spice extract file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/b4a48bf6-5963-4619-b375-682751d41417)
+
+
  </details>
 
  <details>
  <summary> SKY130 Tech File Labs
  </summary>
 
+**Lab steps to create final SPICE deck using sky130tech**
+
+In this we edit the ``.spice`` file making the connection as required in the circuit. The file is customised in accordance to the model file available in the sky130PDK. 
+
+Screenshot of the model file available in the SKY130PDK
+
+![model file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/5b3983d5-e0c5-476e-9b5d-e43484443b4b)
+
+The edited ``.spice`` file is shown below
+
+![gedit edited file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/936a58e3-d03f-4eb9-84c8-dbec9895cac7)
+
+The ngspice transient results obtained are as follows
+
+![ngspice results](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/33f44a50-bac3-47b8-9721-8317a9087e85)
+
+**Lab steps to characterise inverter using sky130 model files**
+
+After this we obtained the output waveform of the circuit, following commands were used 
+
+```
+plot y vs time a
+```
+![output wave form](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/907c5fd0-7a49-4e24-acbd-ece4160b379e)
+
+To zoom in the waveform select the area and select the point in the zoom portion of the graph to obatin the coordiantes of the point.
+
+![zoomed ngspice](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/c869067d-ebe3-4610-8448-ce394a1ad1af)
+
+**Lab introduction to sky130 pdk's and steps to download labs**
+
+Here using the following commands I downloaded the folder having sample layouts
+```
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+
+tar xfz drc_tests.tgz
+
+cd drc_tests
+
+ls -al
+
+```
+Following files were obtained 
+
+![command and file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/aa6395ec-edfc-4d6d-a545-cd57dc32a66c)
+
+To open the magic window following command was used
+
+```
+magic -d XR
+```
+![magic invoke](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7bd166c3-e611-4a1d-ad64-584210881101)
+
+**Lab introduction to Magic and steps to load sky130tech-rules**
+
+The commands for DRC rule check can be refered to the following page
+
+```
+https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#m3
+
+```
+
+![periphery rules](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/90ae8387-9f41-4db3-91f3-eb60c707fefb)
+
+Following commands are used 
+
+![DRC command window](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/79c129f0-3c20-4d41-b648-a6e1b473438c)
+
+**Right click** - Outside the box to increase the box area in the magic layout, inside the box to decrease the area of the box.
+
+**Left click** - Used to move the box from once place to other.
+
+To get the metal connections following steps needed to be followed
+
+* First select the area under which the metal connection needed to be established, using the right and left click.
+* Now paint the area using any metal colour from the window, here we used m3 i.e. metal 3.
+* Now press P this will generate the metal connections in the box created.
+* A sample of the above process is shown in the below process
+
+  ![metal details](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/4c1a94eb-8137-41cf-9433-fc76e1b1625f)
+
+  
  </details>
 
  
