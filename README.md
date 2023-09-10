@@ -564,8 +564,17 @@ The algorithm is a breadth-first based algorithm that uses queues to store the s
 
   **Design Rule Check(DRC)**
 
-  
+  Few of the DRC are listed below
 
+  1. Via Width- The via width refers to the width of this vertical interconnection structure. It is defined as the minimum allowable width for a via, which ensures that the via can be properly manufactured and that it meets the required electrical and thermal specifications.
+  
+  2. Via Spacing -The via spacing rule is defined to guarantee that there is enough separation between vias to avoid issues such as shorts or unintended connections during the manufacturing process. Violating via spacing rules can lead to manufacturing problems and potential electrical performance issues in the final chip.
+  
+  3. Wire Pitch- Wire pitch" refers to the minimum allowable distance between two adjacent metal wires or conductive traces on a semiconductor layout.
+     
+  4. Wire width- Wire width" refers to the minimum allowable width of metal wires or conductive traces on a semiconductor layout.
+     
+  5. Wire Spacing- Wire spacing refers to the minimum allowable distance between two adjacent metal wires or conductive traces on a semiconductor layout.
 
  </details>
 
@@ -579,13 +588,32 @@ The algorithm is a breadth-first based algorithm that uses queues to store the s
 
  **Basics of global and detail routing and configure TritonRoute**
 
+ 
+
  </details>
 
 <details>
  <summary> TritonRoute Features
  </summary>
 
+TritonRoute - TritonRoute is an open-source, fully-automated, and hierarchical detailed router used in electronic design automation (EDA) for integrated circuit (IC) physical design.
+
 **TritonRoute feature 1 -Honours pre-processed route guides**
+
+* Performs initial details route
+* Honours the preprocessed route guides(obtained after fast route) i.e. attempts as much as possible to route within route guides.
+* Assumes route guides for each net satisfy inter-guide connectivity.
+* Works on proposed MILP based panel routing scheme with intra-layer parallel and inter-layer sequential routing framework.
+
+![preprocessed routing guides](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/5a5574f0-cb5d-47ec-9a51-b5434437b132)
+
+**Interguide Connectivity**
+* Two guides are connected if
+   * They are on same metal layer with touching edges, or
+   * They are neighboring metal layers with a non zero vertically overlapped area.
+* Each unconnected terminal(i.e pin of standarad cell instance should have its pin shaeped overlapped by a route guide)
+
+  
 
 **TritonRoute Feature 2&3 -Inter-guide connectivity and intra & inter-layer routing**
 
