@@ -412,10 +412,56 @@ The netlist or the circuit is made using the component available in library, whe
 
 **Placement** is the process of placing the cells in the core area of the chip as shown below. 
 
+The next step in the OpenLANE ASIC flow is placement. The synthesized netlist is to be placed on the floorplan. Placement is perfomed in 2 stages:
+
+1.Global Placement: It finds optimal position for all cells which may not be legal and cells may overlap. Optimization is done through reduction of half parameter wire length.
+
+2.Detailed Placement: It alters the position of cells post global placement so as to legalise them.
+
 ![netlist_placement](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/e40e5c6c-a71d-454e-8cba-4b24530cc44b)
+
+**Need for librabries and characterisation**
+
+**Library characterization** is the process of characterizing electronic components and gates, such as logic gates, flip-flops, and other building blocks, to create models that accurately represent their behavior under various conditions. This characterization provides information about how components respond to different inputs, delays, power consumption, and more.
+
+**Library modeling** involves creating mathematical or algorithmic representations of the behavior and characteristics of components. These models are used by EDA tools to simulate, analyze, and optimize digital circuits during the design phase.
+
+![PROCESS](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/40c9befb-f387-4038-af20-02d250d4936a)
+
+![NEED FOR LIBRARY](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/98fc611c-0d59-47cb-8869-ef3fca4c9500)
+
+**Logic synthesis** is a crucial step in the design of digital integrated circuits (ICs) and plays a central role in transforming a high-level hardware description into a gate-level representation that can be fabricated in silicon.
+
+**Floorplan** is one the critical & important step in Physical design. Quality of your Chip / Design implementation depends on how good is the Floorplan. A good floorplan can be make implementation process (place, cts, route & timing closure) cake walk. On similar lines a bad floorplan can create all kind issues in the design (congestion, timing, noise, IR, routing issues). A bad floorplan will blow up the area, power & affects reliability, life of the IC and also it can increase overall IC cost (more effort to closure, more LVTS/ULVTS).
+
+**Placement** is the process of determining the locations of circuit devices on a die surface. It is an important stage in the VLSI design flow, because it affects routabil- ity, performance, heat distribution, and to a less extent, power consumption of a design.
+
+**Clock Tree Synthesis** is a technique for distributing the clock equally among all sequential parts of a VLSI design. The purpose of Clock Tree Synthesis is to reduce skew and delay.
+
+**Routing** in VLSI is making physical connections between signal pins using metal layers. Following Clock Tree Synthesis (CTS) and optimization, the routing step determines the exact pathways for interconnecting standard cells, macros, and I/O pins.
 
 **Optimise placement using estimated wire length and capacitance**
 
+**Repeaters**- Element introduced in the core area to maintain the signal integrity.
+The below image shows how the repeaters are placed in the core 
+
+![final repeaters](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/5a2f396e-9ac9-4fb4-b407-14480a4b468e)
+
+
+
+**RUN Placement in openlane**
+
+Following command was used 
+
+```
+run_placement
+```
+
+![wsl run placement](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/481599a1-bf1a-411c-9599-58d08436c5e3)
+
+![placement xoomed](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/68612de9-7be6-4aaa-bca1-82cba14e7e72)
+
+![placement floorplan](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/05ef5fd1-6a61-41f5-a3af-4ce81821d752)
 
 
  </details>
@@ -612,14 +658,29 @@ TritonRoute - TritonRoute is an open-source, fully-automated, and hierarchical d
    * They are on same metal layer with touching edges, or
    * They are neighboring metal layers with a non zero vertically overlapped area.
 * Each unconnected terminal(i.e pin of standarad cell instance should have its pin shaeped overlapped by a route guide)
-
   
-
 **TritonRoute Feature 2&3 -Inter-guide connectivity and intra & inter-layer routing**
+
+Problem Statement
+**Input**- LEF,DEF, Preprocessed route guides 
+
+**Output** - Detailed routing solution with optimised wire length and via count
+
+**Constraints** - Route guide honoring, connectivity constraints and design rules.
+
+![inter   Intra layer](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/a4a1ac53-9e1f-465c-a48b-1e6056da4cfb)
+
 
 **TritonRoute method to handle connectivity**
 
+![handling connectivity ](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/d9dceea7-e123-442d-bcf5-2f4fa6fa6a08)
+
+
 **Routing topology algorithm and final files list post-route**
+
+![routing algo](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/5725cac3-93d5-42cd-92ad-776b0ae2a0c4)
+
+
 
 
  </details>
