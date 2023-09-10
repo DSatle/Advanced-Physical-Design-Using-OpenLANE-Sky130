@@ -360,6 +360,19 @@ To generate the floorplan following commands is used
 run_floorplan
 
 ```
+## Initial Place Design
+
+Optimize Placement Using Estimated Wire Length And Capacitance representation is shown below in the image:
+
+![initial place design](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/d3ab7403-b451-4d12-b2dc-b1b6423250c0)
+
+
+
+
+
+
+
+
 
 ```
 run_placement
@@ -469,6 +482,60 @@ run_placement
  <details>
  <summary> Cell design and characterization flows
  </summary>
+
+## Cell Design Flow
+
+Below is the representation of cell design flow
+
+![cell design ](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/481e207c-bff3-44dc-a1da-e9b060c0b096)
+
+**Cell design flow**, also known as standard cell design flow, is the process of creating and optimizing standard cell libraries used in digital integrated circuit design. These libraries contain fundamental building blocks, such as logic gates and flip-flops, that are used to design complex digital circuits.
+
+* **Specification and Requirements**: Begin by defining the specifications and requirements for the standard cell library. This includes factors like technology node, voltage levels, speed requirements, and power constraints.
+  
+* **Cell Architecture Selection**: Choose the architecture and topology for the standard cells. This involves deciding on the logical functions each cell will implement and the number of input and output pins.
+
+* **Schematic Design**: Create schematic designs for each standard cell. This involves designing the logical function of the cell using gates and interconnections. Tools like schematic capture software are used for this step.
+
+* **Simulation and Verification**: Simulate the designed cells to verify that they meet the specified functionality and timing requirements. This step may include functional simulation, static timing analysis (STA), and power analysis.
+
+* **Layout Design**: Create physical layouts for the cells based on the schematic designs. This involves specifying the dimensions, placement of transistors, and routing of metal layers.
+
+* **DRC and LVS Checks**: Perform Design Rule Check (DRC) and Layout vs. Schematic (LVS) checks to ensure that the layout adheres to the manufacturing rules and is consistent with the schematic.
+
+* **Extraction and Characterization**: Extract parasitic components from the layout, including resistances and capacitances. These parasitics impact the timing and power characteristics of the cells. Characterize the cells by measuring their performance under various conditions, such as different input vectors and operating voltages.
+
+* **Timing Characterisation**: Conduct detailed timing analysis to determine parameters like propagation delay, setup time, hold time, and clock-to-q delay for flip-flops
+
+* **Library Validation**: Validate the entire standard cell library by using it in test chip or design test cases to ensure that it meets performance and functionality requirements.
+
+Below is the flow:
+
+![cell design 1](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/58dabbee-bdc0-4259-8af8-577835d7803d)
+
+Below shown the different functionality of different size of library that consists of gates dffs and latches.
+
+![cell design 2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/cf41532b-32eb-4768-bee6-b865e9155546)
+
+![cell design 3](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/e750f943-c0c8-4117-bfb2-6e9ad56c68c5)
+
+Stick diagram layout representation is show below
+
+![stick diagram](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7d81050a-6039-4fed-bea9-1a094ac6dcf6)
+
+## Characterisation flow
+
+**Characterization** in VLSI refers to the process of analyzing and documenting the electrical behavior of electronic components, such as transistors, logic gates, memory cells, and standard cells, under various operating conditions. Characterization is essential for accurate circuit simulation and helps ensure that integrated circuits (ICs) meet their performance, power, and timing requirements.
+
+Let's see below flow representation:
+
+
+![ch1](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/e858762a-e7d7-445b-bd8f-538ab39e43d9)
+
+![ch2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/34bb2182-24c1-40b7-b06b-faccf1959727)
+
+![ch3](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/bef80248-0189-495b-9579-f1bbb9444096)
+
 
 </details>
 
