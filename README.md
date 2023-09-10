@@ -525,7 +525,28 @@ The concept is shown in the image below
  <details>
  <summary> Labs for CMOS inverter ngspice simulations
  </summary>
+  
+## Lab steps to gitclone vsdstdcell design
 
+First, clone the required mag files and spicemodels of inverter,pmos and nmos sky130. The command to clone files from github link is:
+
+```
+git clone https://github.com/nickson-jose/vsdstdcelldesign.git
+```
+once I run this command, it will create ``vsdstdcelldesign folder`` in openlane directory.
+
+For layout we run magic command
+
+``magic -T sky130A.tech sky130_inv.mag &``
+
+![gitclone and command](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/ea098dd4-c06f-4cdd-865f-dc4fb42fb837)
+
+
+Ampersand at the end makes the next prompt line free, otherwise magic keeps the prompt line busy. Once we run the magic command we get the layout of the inverter in the magic window
+
+![Magic vsdvsd](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/bce8a323-7970-4c2b-af9c-51586c9f9914)
+
+ 
  </details>
 
  <details>
