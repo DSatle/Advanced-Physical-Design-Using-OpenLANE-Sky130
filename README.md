@@ -666,6 +666,78 @@ To get the metal connections following steps needed to be followed
 
   ![metal details](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/4c1a94eb-8137-41cf-9433-fc76e1b1625f)
 
+**Lab excercise to fix poly.9 error in Sky130 tech-file**
+
+To load the poly.mag :
+
+``load poly.mag``
+
+It will open layout of the file in magic:
+
+![error poly9 layout](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/3934f5d9-af9a-4a60-8077-522d62fcd38e)
+
+To know more about the poly.9 error refer the website, a snapshot of which is shown below
+
+![poly9werr](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/bf75fc2b-3075-4b1d-a8d4-60585f576781)
+
+To overcome this error open the file ``sky130A.tech``
+
+These changes are needed to be made 
+
+Change the following
+
+```
+spacing npres *nsd 480 touching_illegal \
+	"poly.resistor spacing to N-tap < %d (poly.9)"
+```
+to
+
+```
+spacing npres allpolynonres 480 touching_illegal \
+	"poly.resistor spacing to N-tap < %d (poly.9)"
+```
+
+![poly1](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/cc7f754b-af75-4c6e-a33f-bbf80d486bc7)
+
+Now change 
+
+```
+spacing xhrpoly,uhrpoly,xpc alldiff 480 touching_illegal \
+
+	"xhrpoly/uhrpoly resistor spacing to diffusion < %d (poly.9)"
+
+```
+
+To this
+
+```
+spacing xhrpoly,uhrpoly,xpc allpolynonres 480 touching_illegal \
+
+	"xhrpoly/uhrpoly resistor spacing to diffusion < %d (poly.9)"
+```
+
+![poly2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/06c8ef70-07d6-4da3-a85e-de51ef8a3aef)
+
+Now save it. You dont have to close the magic after the modifying the sky.tech file. Type the below command in magic's terminal:
+
+``tech load sky130A.tech``
+In the warning click on yes.
+Then type below command:
+``drc check``
+
+### NOTE- Since the tech file got loaded behind the curtains, DRC engine needs to be told that check everthing again.
+
+Following layout will be obtained after making the changes
+ 
+![drc check skytech130A](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/15addf98-8044-4328-afb2-09efd1b7f5a0)
+
+**Lab excercise to implement poly resistor spacing to diff & tap**
+
+**Lab Challenge excercise to describe DRC error as geometrical construct**
+
+**Lab challenge to find missing or incorrect rules & fix them**
+
+
   
  </details>
 
