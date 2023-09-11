@@ -914,11 +914,44 @@ output of which is shown below
 
 ![track info](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/1c6a4186-a613-405f-9a02-962fdea96dd5)
 
+Here we are eventually converting grid defination to track defination
+
+The command used in the layout window is given below
+
+```
+grid 0.46um 0.34um 0.23um 0.17um
+```
+
+Before conversion
+
+![after grid command](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/b6ecccfe-6031-451c-a14a-2144ca3bd6db)
+
+After conversion
+
+![io intersection](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/0c2794f2-1d4e-494a-ade5-edbf54899dbb)
+
+I/O port that lies at the intersection of vertical and horizontal tracks
+
+![before grid command](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/980f0391-4a9c-450a-a3b2-6fe39d6a9277)
 
 
 **Lab steps to convert magic layout to std cell LEF**
 
+Port defining in the magic, below image shows the steps involved in defining the port 
+
+![port defining A](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/bf0874fe-c853-438e-b9ae-02af19967bab)
+
+Steps for generating the ``lef`` file following command is used
+
+![lef file command](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/3b9c8b39-5297-4c02-b0fa-c2ea3a21bc3a)
+
+Below is generated lef file in the directory
+
+![lef file ss](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/0b01ab5e-b57e-4e3b-94b4-61d0c579c704)
+
 **Introduction to timing libs and steps to include new cell in synthesis**
+
+
 
 **Introduction to delay tables**
 
