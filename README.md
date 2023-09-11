@@ -366,14 +366,6 @@ Optimize Placement Using Estimated Wire Length And Capacitance representation is
 
 ![initial place design](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/d3ab7403-b451-4d12-b2dc-b1b6423250c0)
 
-
-
-
-
-
-
-
-
 ```
 run_placement
 ```
@@ -594,6 +586,16 @@ The concept is shown in the image below
  </summary>
   
 ## Lab steps to gitclone vsdstdcell design
+
+**Inverter**
+
+**A CMOS inverter**, short for Complementary Metal-Oxide-Semiconductor inverter, is a fundamental digital electronic circuit that performs the basic logical operation of inversion. In other words, it takes an input signal and produces an output signal that is the logical complement of the input. If the input is high (logic 1), the output will be low (logic 0), and vice versa.
+
+The input signal is applied to the gate terminals of both the NMOS and PMOS transistors. The output is taken from the connection point (the drain of NMOS and the source of PMOS) between these two transistors.
+
+**NMOS Operation**: When the input is logic high (1), the NMOS transistor turns on because a positive voltage is applied to its gate. This establishes a low-resistance path between the output and ground, causing the output to be pulled to logic low (0).
+
+**PMOS Operation**: Conversely, when the input is logic low (0), the PMOS transistor turns on because a low voltage is applied to its gate. This establishes a low-resistance path between the output and the power supply voltage (VDD), causing the output to be pulled to logic high (1).
 
 First, clone the required mag files and spicemodels of inverter,pmos and nmos sky130. The command to clone files from github link is:
 
