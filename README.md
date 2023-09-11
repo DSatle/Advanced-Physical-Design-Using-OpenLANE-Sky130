@@ -854,6 +854,37 @@ feed clear
 
 **Lab challenge to find missing or incorrect rules & fix them**
 
+Modify the sky130A.tech file according to below:
+
+change the cifmaxwidth code to this :
+
+```
+cifmaxwidth nwell_untapped 0 bend_illegal \
+
+	"Nwell missing tap (nwell.4)"
+```
+Following changes are made in the sky130A.tech 
+
+![gedit 2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/733405ab-88d2-4083-972b-22932984fe3e)
+
+![gedit3](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/f3b3703f-790e-45bb-900d-22bbfea1bfbb)
+
+After modification give commands 
+```
+tech load sky130A.tech
+drc check
+drc style
+drc(full)
+drc check
+```
+
+Below is the result for modified code and corresponding change in the layout
+
+![Modified nwell 6](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/251730da-b71a-4e9f-9335-9513b4459f32)
+
+Now tapp using nsubstratencontact shown below it will change DRC:
+
+![final image day3](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/f34e6b13-2b53-44a9-b7a8-162758aae0f4)
 
   
  </details>
