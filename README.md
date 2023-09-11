@@ -898,13 +898,31 @@ Now tapp using nsubstratencontact shown below it will change DRC:
 
 **Lab steps to convert grid info to track info**
 
+Since ``.mag`` file consists each and every details of the layout i.e power & gnd info., port info, logic part. But for placement and route part all we need is input-output info and power & gnd info. Hence we would be using ``.lef`` file 
+
+From PNR point of view we need to follow few guidelines given below
+
+* I/O port should lie at the intersection of vertical and horizontal tracks
+* The width of the std cell should be in odd multiple of the track pitch & height should be odd multiple of the vertical pitch
+
+To get the track info use the following command in the directory 
+
+```
+less tracks.info
+```
+output of which is shown below
+
+![track info](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/1c6a4186-a613-405f-9a02-962fdea96dd5)
+
+
+
 **Lab steps to convert magic layout to std cell LEF**
 
 **Introduction to timing libs and steps to include new cell in synthesis**
 
 **Introduction to delay tables**
 
-**
+
 
 
 
