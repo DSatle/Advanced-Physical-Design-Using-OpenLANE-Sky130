@@ -802,7 +802,55 @@ Following layout will be obtained after making the changes
 
 **Lab excercise to implement poly resistor spacing to diff & tap**
 
+Copy the three resistors by selecting (Edit > select area) and then press 'c' on keyboard.
+You can move the copied resistors by pressing 'm' key and arrow key.
+
+Now create n diffusion and p diffusion by creating box and selecting the ndiff and pdiff from the sidebar(by clicking the middle button of the mouse).
+
+Then modify the sky130A.tech file by just modifying the *nsd to alldiff.
+Now type below command in magic's terminal and all the rules will correctly identify 
+
+``drc check``
+
+Below image shows the changes appeared on the layout
+
+![implement poly resistor](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/ef38ac99-9a95-49f4-ac8c-1976bddf50d8)
+
+
 **Lab Challenge excercise to describe DRC error as geometrical construct**
+
+Open sky130A.tech file and search cifmaxwidth below is the representation:
+
+![cifwidth](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/e9828f79-8ee0-41f7-b888-bd0e9f1a3857)
+
+Below is the rule shown for nwell (which can be access by skywater sky130 pdk website) :
+
+![pp rules1](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/48240a45-9643-4d1f-8fe9-47761ffce865)
+
+Also refer this dnwell rules:
+
+![pp rules2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/3b86d0c1-b3b8-4c83-95ca-c8dc95c683f8)
+
+Refer this style drc in sky130A.tech file :
+
+![gedit lab challenge](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/871a780f-3dcb-4a83-beb3-168ee125317e)
+
+First create a box around cell nwell6 , Now in tkcon terminal type below commands:
+
+![mag 6](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7de5b2f5-1115-426b-9e04-395ce160d7dc)
+
+```
+cif ostyle drc
+cif see dnwell_shrink
+feed clear
+cif see nwell_missing
+feed clear
+```
+
+![mag 6 2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/2fa7281c-1a8e-4545-b732-d6b3c65976d9)
+![mag 6 3](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/76bfb69d-d26a-43c6-8627-2cd41284bd3d)
+
+
 
 **Lab challenge to find missing or incorrect rules & fix them**
 
