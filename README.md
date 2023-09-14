@@ -597,6 +597,8 @@ The input signal is applied to the gate terminals of both the NMOS and PMOS tran
 
 **PMOS Operation**: Conversely, when the input is logic low (0), the PMOS transistor turns on because a low voltage is applied to its gate. This establishes a low-resistance path between the output and the power supply voltage (VDD), causing the output to be pulled to logic high (1).
 
+Below shown the inverter diagram :
+
 First, clone the required mag files and spicemodels of inverter,pmos and nmos sky130. The command to clone files from github link is:
 
 ```
