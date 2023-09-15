@@ -599,6 +599,14 @@ The input signal is applied to the gate terminals of both the NMOS and PMOS tran
 
 Below shown the inverter diagram :
 
+![inverter](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/fd964375-988d-4b3b-b8a6-4fa52b7e6a2e)
+
+Nodes are shown below:
+
+![Nodes](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/be2807d2-e912-4beb-bd29-fd137c278f97)
+
+
+
 First, clone the required mag files and spicemodels of inverter,pmos and nmos sky130. The command to clone files from github link is:
 
 ```
