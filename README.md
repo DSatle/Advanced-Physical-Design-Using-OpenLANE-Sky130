@@ -1131,7 +1131,68 @@ Below is generated lef file in the directory
 
 **Introduction to timing libs and steps to include new cell in synthesis**
 
+Here we want to generate the custom cell of the ``.lef`` file generated for which we need libraries here we have three diff types of library i.e typical, fast, slow. 
 
+![lib types](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/897ff1cb-4564-4faf-bae6-24046a1c5f2d)
+
+![library](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/06001528-5b5c-4ceb-bddd-a031cff53bfe)
+
+Now we will make the following changes in the config. json file 
+
+```
+
+{
+    "DESIGN_NAME": "picorv32",
+    "VERILOG_FILES": "dir::src/picorv32a.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
+    "RUN_HEURISTIC_DIODE_INSERTION": true,
+    "DIODE_ON_PORTS": "in",
+    "GPL_CELL_PADDING": 2,
+    "DPL_CELL_PADDING": 2,
+    "CLOCK_PERIOD": 24,
+    "FP_CORE_UTIL": 35,
+    "PL_RANDOM_GLB_PLACEMENT": 1,
+    "PL_TARGET_DENSITY": 0.5,
+    "FP_SIZING": "relative",
+    "LIB_SYNTH":"dir::src/sky130_fd_sc_hd__typical.lib",
+    "LIB_FASTEST":"dir::src/sky130_fd_sc_hd__fast.lib",
+    "LIB_SLOWEST":"dir::src/sky130_fd_sc_hd__slow.lib",
+    "LIB_TYPICAL":"dir::src/sky130_fd_sc_hd__typical.lib",
+    "TEST_EXTERNAL_GLOB":"dir::/src/*",
+    "SYNTH_DRIVING_CELL":"sky130_vsdinv",
+    "MAX_FANOUT_CONSTRAINT": 4,
+    "pdk::sky130*": {
+        "MAX_FANOUT_CONSTRAINT": 6,
+        "scl::sky130_fd_sc_ms": {
+            "FP_CORE_UTIL": 30
+        }
+    }
+}
+
+
+```
+![config](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/97cd3cbb-29ee-4731-a040-f06eb89d91a9)
+
+To incorporate the standard cell into the OpenLANE workflow, follow these steps after launching OpenLANE as you normally would:
+
+* Initialize OpenLANE as usual.
+* Proceed with the following actions:
+  * Reconfigure the standard cell integration within OpenLANE.
+  * Execute the necessary tasks to seamlessly include the standard cell in the workflow.
+
+```
+prep -design picorv32a -tag RUN_2022.08.17_16.22.21 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+run_synthesis
+```
+Below is the obtained floorplan and sythesis report of the custom made cell
+
+![new floorplan](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7f496385-a032-4ff0-a488-fb288e626690)
+
+![log file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7c0d97d8-90d6-4d82-a569-df8452fd39c9)
 
 **Introduction to delay tables**
 
