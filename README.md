@@ -957,6 +957,43 @@ Below is generated lef file in the directory
 
 **Introduction to delay tables**
 
+# Delay tables
+
+We observe that the buffer we insert to maintain signal integrity has some constraints. We observe that size of buffer in every level should have same size and have different delays depending on load driven by them. So VLSI engineers came up with concept of delay tables which consists of 2D array of values input slew & load capacitance defined for cell for different sizes. These delay tables became timing models. The algorithm takes these values and computes delay values. If delay is not available directly, it takes nearest data and determines through extrapolation.
+
+![Delay table](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/f02f5764-e917-44bf-bc25-476116b1e434)
+
+# Openlane steps with custom standard cell
+
+We perform synthesis and found that it has negative slack and met timing constraints.
+
+We perform floorplan and find out custom cell included as follows.
+
+# Setup & hold time concepts
+
+It is here that we introduce SETUP and HOLD time. Setup time is defined as the minimum amount of time before the clock’s active edge that the data must be stable for it to be latched correctly. Any violation may cause incorrect data to be captured, which is known as setup violation.
+
+![S HT1](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/2df7daed-20a6-4329-b377-ea3af416ff81)
+
+Hold time is defined as the minimum amount of time after the clock’s active edge during which data must be stable. Violation in this case may cause incorrect data to be latched, which is known as a hold violation. Note that setup and hold time is measured with respect to the active clock edge only.
+
+![S HT2](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/53d2547a-206b-4228-b215-0c3b6aeea644)
+
+# Clock jitter concept
+
+Circuitry in the clock generator, noise, changes in the power supply, interference from surrounding circuitry, etc. are the usual causes of clock jitter. The design margin called for in the timing closure specification includes jitter as a factor.
+
+Period jitter is the difference between a clock signal's cycle time and the ideal period over a large number of randomly chosen cycles, such as 10K cycles. The clock period deviation can be supplied as either an average value across the chosen cycles (RMS value) or as the difference between the chosen group's highest and minimum deviations (peak-to-peak period jitter).
+
+The difference between two consecutive clock cycles across a random number of clock cycles is known as cycle to cycle jitter, or C2C. (say 10K). Typically, this is described as the peak value for the random group.By doing so, the high frequency jitter can be calculated.
+
+The effect being measured in the frequency domain is phase noise. In the frequency domain, phase noise is the representation of fast, short-lived, random variations in the phase of the waveform. These fluctuations can be converted into jitter values for digital design.
+
+
+
+
+
+
 
 
 
