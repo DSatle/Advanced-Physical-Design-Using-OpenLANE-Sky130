@@ -1004,6 +1004,23 @@ The effect being measured in the frequency domain is phase noise. In the frequen
  <summary> Clock tree synthesis TritonCTS and signal integrity
  </summary>
 
+# Clock tree synthesis
+
+The goal of constructing a clock tree is to make sure that the clock input reaches all the elements and that there is no clock skew. The H-tree is one of the most used methods in CTS. If you have ever tried to reduce slack in a previous run, you may have noticed that the netlist has been changed by cell replacement techniques. Before trying to run a CTS in tritoncts tool.
+
+The goal of the Clock Tree Synthesis is to reduce the routing resources of the clock signal, reduce the area of the clock repeaters, while maintaining a reasonable clock skew, reasonable clock latency, reasonable clock transition time, minimum Pulse Width, and duty cycle requirements for all the sequence elements in the design, and reasonable clock power within the spec. Clock Skew refers to the difference in the clock arrival time between two registers
+
+Below is an example of bad tree
+
+![clock tree](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/ec506293-59a4-4a69-a7e9-8876d0cf79d1)
+
+
+# Cross talk & cross net shielding
+
+Crosstalk noise is noise generated on the clock network by aggressor nets surrounding the clock signal. This noise can delay or make the clock signal faster or even cause spurious transitions known as glitches. To maintain the signal integrity of the clock signal, physical designers protect the clock wires using a power net. They may also use NDR rules that route the clock signal by leaving one empty track next to the clock route. This helps to reduce the impact of noise on the clock network. The function of the clock signal is to control and synchronize trigger events within a synchronous design. Therefore, maintaining the signal integrity is essential to meet your design functional specification.
+
+![cross talk](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/bdc9c311-15e5-4d70-99b4-c2cf1dd1adbd)
+
  </details>
 
   <details>
