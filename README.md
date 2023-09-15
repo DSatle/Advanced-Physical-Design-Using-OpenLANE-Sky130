@@ -969,6 +969,13 @@ We perform synthesis and found that it has negative slack and met timing constra
 
 We perform floorplan and find out custom cell included as follows.
 
+</details>
+
+<details>
+ <summary>Timing Analysis with ideal clocks using openSTA
+ </summary>
+
+
 # Setup & hold time concepts
 
 It is here that we introduce SETUP and HOLD time. Setup time is defined as the minimum amount of time before the clock’s active edge that the data must be stable for it to be latched correctly. Any violation may cause incorrect data to be captured, which is known as setup violation.
@@ -990,20 +997,7 @@ The difference between two consecutive clock cycles across a random number of cl
 The effect being measured in the frequency domain is phase noise. In the frequency domain, phase noise is the representation of fast, short-lived, random variations in the phase of the waveform. These fluctuations can be converted into jitter values for digital design.
 
 
-
-
-
-
-
-
-
-
- </details>
-
-  <details>
- <summary>Timing Analysis with ideal clocks using openSTA
- </summary>
-
+  
  </details>
 
  <details>
