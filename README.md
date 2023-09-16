@@ -1202,12 +1202,6 @@ We observe that the buffer we insert to maintain signal integrity has some const
 
 ![Delay table](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/f02f5764-e917-44bf-bc25-476116b1e434)
 
-# Openlane steps with custom standard cell
-
-We perform synthesis and found that it has negative slack and met timing constraints.
-
-We perform floorplan and find out custom cell included as follows.
-
 </details>
 
 <details>
@@ -1235,13 +1229,33 @@ The difference between two consecutive clock cycles across a random number of cl
 
 The effect being measured in the frequency domain is phase noise. In the frequency domain, phase noise is the representation of fast, short-lived, random variations in the phase of the waveform. These fluctuations can be converted into jitter values for digital design.
 
+![clock jitter](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/65b0b057-5260-454b-805b-4da1e332be88)
 
-  
+After putting command
+
+```
+set ::env(SYNTH_MAX_FANOUT) 4
+```
+we got positive slack in sta analysis.
+
+
+**Lab Steps to configure post synthesis analysis**
+
+Before synthesis we had file name sta.config which gives info about synthesis & my_base.sdc file
+
+![my_base sdc](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/71e4dd36-5df7-4600-b953-51aac4641cdc)
+
+
+![presta](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/05de3a35-f2b6-4d98-ab0b-5dc1928ef588)
+
+
  </details>
 
  <details>
- <summary> Clock tree synthesis TritonCTS and signal integrity
+ <summary> Clock tree synthesis TritonCTS and signal integrity 
  </summary>
+
+
 
 # Clock tree synthesis
 
@@ -1260,15 +1274,35 @@ Crosstalk noise is noise generated on the clock network by aggressor nets surrou
 
 ![cross talk](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/bdc9c311-15e5-4d70-99b4-c2cf1dd1adbd)
 
- </details>
+ **Clock tree Synthsis lab**
 
-  <details>
- <summary> Timing analysis with real clocks using openSTA
- </summary>
+ We use the following command to execute CTS within OpenLane:
 
- 
+ ```
+run_cts
+write_verilog ./designs/picorv32a/picorv32a_cts.v
 
- 
+```
+
+Since clock buffers are added during the CTS run, buffer delays are now a factor, and real clocks will be used for the remainder of our research. Now, setup and hold time slacks may be examined in OpenROAD's post-CTS STA analysis for the openLANE flow:
+
+open openroad tool using following in openlane command prompt.
+
+```
+openroad
+```
+```
+read_lef ./designs/picorv32a/runs/RUN_2023.09.15_09.02.59/tmp/merged.nom.lef 
+read_def ./designs/picorv32a/runs/RUN_2023.09.15_09.02.59/results/cts/picorv32a.def
+write_db ./designs/picorv32a/picorv32a.db
+read_verilog ./designs/picorv32a/picorv32a_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+read_sdc ./designs/picorv32a/runs/RUN_2023.09.15_09.02.59/results/cts/picorv32a.sdc
+report_checks -path_delay min_max -format full_clock_expanded -digits 4
+```
+It's evident that the slack constraints have been satisfied.
+
+![slackmeeting](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/f3ad4837-c02f-40b4-9d88-f9b2d1846cb2)
 
  </details>
 
@@ -1310,6 +1344,9 @@ The algorithm is a breadth-first based algorithm that uses queues to store the s
   4. Wire width- Wire width" refers to the minimum allowable width of metal wires or conductive traces on a semiconductor layout.
      
   5. Wire Spacing- Wire spacing refers to the minimum allowable distance between two adjacent metal wires or conductive traces on a semiconductor layout.
+ 
+     ![drc](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/2b1d7999-3ee4-428c-85b7-89fbeda02a56)
+
 
  </details>
 
@@ -1317,11 +1354,20 @@ The algorithm is a breadth-first based algorithm that uses queues to store the s
  <summary> Power distribution Network and routing 
  </summary>
 
- **Lab steps to build power distribution network**
+In contrast to the standard ASIC flow, the generation of the Power Distribution Network (PDN) is not included as a step in the floorplan process within OpenLANE. PDN generation must take place after the Clock Tree Synthesis (CTS) and subsequent post-CTS Static Timing Analysis (STA) assessments.
 
- **Lab steps from power straps to std. cell power**
+You can verify whether the Power Distribution Network (PDN) has been created or not by checking the current "def" environment variable:
+ ``echo`` ``$::env(CURRENT_DEF)``
 
- **Basics of global and detail routing and configure TritonRoute**
+ prep -design picorv32a -tag Run 2023.09.16.
+```
+gen_pdn
+```
+
+![commands](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/b145936c-97c0-49d0-b407-282c6bc08072)
+
+![log file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/56a0fd22-df1f-469d-8ff8-b086ed6803af)
+
 
  
 
@@ -1369,11 +1415,16 @@ Problem Statement
 
 ![routing algo](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/5725cac3-93d5-42cd-92ad-776b0ae2a0c4)
 
-
-
-
  </details>
+<details>
+ <summary> References
+ </summary>
+	
+I sincerely thank Mr. Kunal Gosh, the Founder of VSD, for his invaluable assistance in guiding me through the completion of this workflow with seamless ease.
 
+I would also like to express my gratitude to Pruthvi Bhai Parate & Bhargav D.V. for there outstanding technical expertise, which was instrumental in helping me identify and resolve errors.
+
+</details>
 
 
 
