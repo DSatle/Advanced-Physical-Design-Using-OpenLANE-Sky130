@@ -1190,9 +1190,9 @@ run_synthesis
 ```
 Below is the obtained floorplan and sythesis report of the custom made cell
 
-![new floorplan](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7f496385-a032-4ff0-a488-fb288e626690)
+![cell stats](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/45552792-3b65-4962-9d3d-c5cb02fd3ce5)
 
-![log file](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/7c0d97d8-90d6-4d82-a569-df8452fd39c9)
+![cell with divyam](https://github.com/DSatle/Advanced-Physical-Design-Using-OpenLANE-Sky130/assets/140998466/58de994e-dce5-403c-818d-82972a3fc6d1)
 
 **Introduction to delay tables**
 
